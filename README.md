@@ -11,7 +11,7 @@
 - **Fun & Games**: Includes jokes, trivia, and simple games to keep the community engaged.
 
 ## Getting Started
-To set up Bat Pesho Bot on your own server:
+To set up Bat Pesho The Robot on your own server:
 
 ## Clone the repository:
 - **bash**
