@@ -32,8 +32,8 @@ To set up Bat Pesho Bot on your own server:
 
 - **!serverinfo - Displays information about the server.**
 - **!userinfo - Displays information about the user.**
-- **!calculate <operation> - Perform calculations (e.g., /calculate 5 + 3).**
-- **!books - Suggests a book for reading.**
+- **!calculate <operation> - Perform calculations (e.g., /calculate 5 + 3) Operations:('+','-','/'*','%').**
+- **!books - Suggests top 15 programming books for reading.**
 - **!rules - Displays server rules /example.**
 - **!joke - Sends a random joke for fun.**
 - **!meme - Generates a random meme.**
