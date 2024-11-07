@@ -30,15 +30,15 @@ To set up Bat Pesho Bot on your own server:
 # Commands
 ## Here are a few of the key commands Bat Pesho Bot supports:
 
-## !serverinfo
-- **!userinfo - Displays information about the server.**
+- **!serverinfo - Displays information about the server.**
+- **!userinfo - Displays information about the user.**
 - **!calculate <operation> - Perform calculations (e.g., /calculate 5 + 3).**
 - **!books - Suggests a book for reading.**
 - **!rules - Displays server rules /example.**
 - **!joke - Sends a random joke for fun.**
-- **!meme - generates a random meme.**
-- **!cardgame - generates cards and numbers and shows the winner.**
-- **!rollgame - generates numbers and shows the winner.**
+- **!meme - Generates a random meme.**
+- **!cardgame - Generates cards and numbers and shows the winner.**
+- **!rollgame - Generates numbers and shows the winner.**
 
 ## Contributing
 -**Feel free to submit issues or make pull requests to improve Bat Pesho Bot! All contributions are welcome, from bug fixes and documentation improvements to new features.**
