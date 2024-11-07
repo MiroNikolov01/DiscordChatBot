@@ -16,8 +16,7 @@ To set up Bat Pesho Bot on your own server:
 ## Clone the repository:
 - **bash**
 - **Copy code**
-```bash
-git clone https://github.com/yourusername/BatPeshoBot.git
+```bash git clone https://github.com/yourusername/BatPeshoBot.git ```
   ## Install the required dependencies:
 - **DSharpPlus for Discord interactions.**
 - **Optionally, Newtonsoft.Json for data handling if needed.**
