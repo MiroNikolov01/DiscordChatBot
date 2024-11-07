@@ -22,7 +22,6 @@ To set up Bat Pesho Bot on your own server:
 - **Optionally, Newtonsoft.Json for data handling if needed.**
 - **Discord.Net, An asynchronous API wrapper for Discord. This metapackage includes all of the optional Discord.Net components.**
 - **System.Net.Http - Provides a programming interface for modern HTTP applications**
-- 
 ## Configure the bot:
 - **Rename config.example.json to config.json and add your bot token and other configuration details.**
 ## Run the bot:
