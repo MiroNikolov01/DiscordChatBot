@@ -1,6 +1,6 @@
-# Bat Pesho Bot - A C# Discord Bot
+# Bat Pesho The Robot - A C# Discord Bot
 
-**Bat Pesho Bot** is a powerful and feature-rich Discord bot designed to enhance the experience of server members. Built with the [DSharpPlus](https://github.com/DSharpPlus/DSharpPlus) library in C#, Bat Pesho can provide server information, perform calculations, recommend books, enforce server rules, and entertain with jokes and games!
+**Bat Pesho The Robot** is a powerful and feature-rich Discord bot designed to enhance the experience of server members. Built with the [DSharpPlus](https://github.com/DSharpPlus/DSharpPlus) library in C#, Bat Pesho can provide server information, perform calculations, recommend books, enforce server rules, and entertain with jokes and games!
 
 ## Features
 
@@ -16,7 +16,7 @@ To set up Bat Pesho Bot on your own server:
 ## Clone the repository:
 - **bash**
 - **Copy code**
-- **git clone** [gitclone](https://github.com/yourusername/BatPeshoBot.git)
+- **git clone** [https://github.com/yourusername/BatPeshoBot.git](https://github.com/yourusername/BatPeshoBot.git)
   ## Install the required dependencies:
 - **DSharpPlus for Discord interactions.**
 - **Optionally, Newtonsoft.Json for data handling if needed.**
@@ -41,4 +41,4 @@ To set up Bat Pesho Bot on your own server:
 - **!rollgame - Generates numbers and shows the winner.**
 
 ## Contributing
--**Feel free to submit issues or make pull requests to improve Bat Pesho Bot! All contributions are welcome, from bug fixes and documentation improvements to new features.**
+-**Feel free to submit issues or make pull requests to improve Bat Pesho The Robot! All contributions are welcome, from bug fixes and documentation improvements to new features.**
