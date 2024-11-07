@@ -18,27 +18,27 @@ To set up Bat Pesho Bot on your own server:
 - **Copy code**
 - **git clone** [gitclone](https://github.com/yourusername/BatPeshoBot.git)
   ## Install the required dependencies:
--**DSharpPlus for Discord interactions.**
--**Optionally, Newtonsoft.Json for data handling if needed.**
+- **DSharpPlus for Discord interactions.**
+- **Optionally, Newtonsoft.Json for data handling if needed.**
 ## Configure the bot:
--**Rename config.example.json to config.json and add your bot token and other configuration details.**
+- **Rename config.example.json to config.json and add your bot token and other configuration details.**
 ## Run the bot:
--**bash**
--**Copy code**
--**dotnet run**
+- **bash**
+- **Copy code**
+- **dotnet run**
 
 # Commands
 ## Here are a few of the key commands Bat Pesho Bot supports:
 
 ## !serverinfo
--**!userinfo - Displays information about the server.**
--**!calculate <operation> - Perform calculations (e.g., /calculate 5 + 3).**
--**!books - Suggests a book for reading.**
--**!rules - Displays server rules /example.**
--**!joke - Sends a random joke for fun.**
--**!meme - generates a random meme.**
--**!cardgame - generates cards and numbers and shows the winner.**
--**!rollgame - generates numbers and shows the winner.**
+- **!userinfo - Displays information about the server.**
+- **!calculate <operation> - Perform calculations (e.g., /calculate 5 + 3).**
+- **!books - Suggests a book for reading.**
+- **!rules - Displays server rules /example.**
+- **!joke - Sends a random joke for fun.**
+- **!meme - generates a random meme.**
+- **!cardgame - generates cards and numbers and shows the winner.**
+- **!rollgame - generates numbers and shows the winner.**
 
 ## Contributing
 -**Feel free to submit issues or make pull requests to improve Bat Pesho Bot! All contributions are welcome, from bug fixes and documentation improvements to new features.**
