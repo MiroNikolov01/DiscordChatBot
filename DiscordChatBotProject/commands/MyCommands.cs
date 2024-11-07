@@ -36,7 +36,7 @@ namespace DiscordChatBotProject.commands
                 Description = $"**Total members:** {guild.MemberCount}\n" +
                               $"**Server ID:** {guild.Id}\n" +
                               $"**Created on:** {guild.CreationTimestamp:dd/MM/yyyy}\n" +
-                              $"**Owner:** Miro\n"
+                              $"**Owner:** {ctx.User.Username}\n"
             };
 
             if (!string.IsNullOrEmpty(guild.IconUrl))
@@ -211,7 +211,7 @@ namespace DiscordChatBotProject.commands
             embed.AddField("❕3. Ask and Help", "– We encourage actively asking questions, but also mutual assistance. Sharing knowledge is the key to success.", false);
             embed.AddField("❕4. Share Solutions", "– Help with homework and tasks is welcome, but the goal is to learn together. Share explanations, not just answers.", false);
             embed.AddField("❕5. Follow Discord's Guidelines", "– Ensure you follow the general rules and guidelines of the Discord platform.", false);
-            embed.AddField("❕6. Channels", "<#1292406919046369313> is intended only for solving tasks and discussing related topics. For other conversations, please use the ⁠<#1293632278018392234> channel.", false);
+            embed.AddField("❕6. Channels", "<#Your_Server_Channel_ID> is intended only for solving tasks and discussing related topics. For other conversations, please use the ⁠<#Your_Server_Channel_ID> channel.", false);
             embed.AddField("❕IMPORTANT❕", "This server is not official and is not affiliated with the educational institution. We are here to support each other and work together towards better results. Join, ask your questions, and let's succeed together!", false);
 
             await ctx.Channel.SendMessageAsync(embed: embed).ConfigureAwait(false);
