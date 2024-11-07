@@ -1,54 +1,52 @@
-﻿using DSharpPlus.CommandsNext;
+using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
-using DSharpPlus.Interactivity.Extensions;
 using System;
 using System.Linq;
 using System.Net.Http;
-using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using static DSharpPlus.Entities.DiscordEmbedBuilder;
-namespace DiscordChatBotProject.commands
-    
 
+namespace DiscordChatBotProject.commands
 {
     public class MyCommands : BaseCommandModule
     {
         [Command("hello")]
         public async Task HelloCommand(CommandContext ctx)
         {
-            await ctx.Channel.SendMessageAsync($"Здравей {ctx.User.Mention} как си?");
+            await ctx.Channel.SendMessageAsync($"Hello {ctx.User.Mention}, how are you?");
         }
+
         [Command("online?")]
         public async Task Command(CommandContext ctx)
         {
-            await ctx.Channel.SendMessageAsync("Аз съм онлайн когато си напълня резервоара с ракия!");
+            await ctx.Channel.SendMessageAsync("I am online when I fill my tank with rakia!");
         }
+
         [Command("serverinfo")]
         [Description("Server Information.")]
         public async Task ServerInfoCommand(CommandContext ctx)
         {
             var guild = ctx.Guild;
 
-
             var embed = new DiscordEmbedBuilder
             {
-                Title = $"Информация на сървъра {guild.Name}",
+                Title = $"Server Information {guild.Name}",
                 Color = DiscordColor.Blurple,
-                Description = $"**Общо участници:** {guild.MemberCount}\n" +
-                              $"**Сървър ID:** {guild.Id}\n" +
-                              $"**Създанено на:** {guild.CreationTimestamp:dd/MM/yyyy}\n" +
-                              $"**Собственик:** Miro\n"
+                Description = $"**Total members:** {guild.MemberCount}\n" +
+                              $"**Server ID:** {guild.Id}\n" +
+                              $"**Created on:** {guild.CreationTimestamp:dd/MM/yyyy}\n" +
+                              $"**Owner:** Miro\n"
             };
 
             if (!string.IsNullOrEmpty(guild.IconUrl))
             {
-                embed.ImageUrl = guild.IconUrl; 
+                embed.ImageUrl = guild.IconUrl;
             }
 
             await ctx.Channel.SendMessageAsync(embed: embed).ConfigureAwait(false);
-
         }
+
         [Command("roll")]
         [Description("Rolls a dice and returns a number between 1 and 6.")]
         public async Task RollCommand(CommandContext ctx)
@@ -57,29 +55,25 @@ namespace DiscordChatBotProject.commands
             int roll = random.Next(1, 7);
             var embed = new DiscordEmbedBuilder()
             {
-                Title = $"{ctx.User.Username} хвърли {roll}! 🎲",
+                Title = $"{ctx.User.Username} rolled {roll}! 🎲",
                 Color = DiscordColor.Sienna,
                 Timestamp = DateTimeOffset.Now
             };
-            await ctx.Channel.SendMessageAsync(embed : embed).ConfigureAwait(false);
+            await ctx.Channel.SendMessageAsync(embed: embed).ConfigureAwait(false);
         }
+
         [Command("joke")]
         [Description("Tells a random joke.")]
         public async Task JokeCommand(CommandContext ctx)
         {
             string[] jokes = {
-                "Какво казва програмист, когато го питат защо не може да си намери приятелка?\n- Error 404: girlfriend not found.",
-
-                "Каква е основната причина програмистите да не излизат навън?\n- Твърде много променливи.",
-
-                "Как програмист изразява любов?\n- if (feels == true) { love++; } else { keepCoding(); }",
-
-                "Как програмист мие чинии?\n- Мие първата и после използва цикъл while(thereAreDishes)",
-
-                "Защо някои функции са толкова срамежливи?\n- Защото са private“.",
-
-                "Можете ли да работите в екип?\n– А, имам опит в работата с масиви и с листове, така че мисля, че да."
-            };
+            "What does a programmer say when asked why he can't find a girlfriend?\n- Error 404: girlfriend not found.",
+            "What is the main reason programmers don't go outside?\n- Too many variables.",
+            "How does a programmer express love?\n- if (feels == true) { love++; } else { keepCoding(); }",
+            "How does a programmer wash dishes?\n- Washes the first one and then uses a while loop while(thereAreDishes)",
+            "Why are some functions so shy?\n- Because they're private.",
+            "Can you work in a team?\n– Well, I have experience working with arrays and lists, so I think yes."
+        };
             var random = new Random();
             int index = random.Next(jokes.Length);
             await ctx.Channel.SendMessageAsync(jokes[index]).ConfigureAwait(false);
@@ -94,16 +88,16 @@ namespace DiscordChatBotProject.commands
             var roleNames = string.Join(", ", roles.Select(role => role.Mention));
             var embed = new DiscordEmbedBuilder()
             {
-                Title = $"Информация за {ctx.User.Username}",
+                Title = $"Information about {ctx.User.Username}",
                 Color = DiscordColor.Orange,
-                Description = $"**Име на участник:** {ctx.User.Mention}\n" +
-                              $"**ID на участник:** {ctx.User.Id}\n" +
-                              $"**Създаден на:** {user.CreationTimestamp:dd/MM/yyyy}\n" +
-                              $"Роли: {roleNames}"
+                Description = $"**Member name:** {ctx.User.Mention}\n" +
+                              $"**Member ID:** {ctx.User.Id}\n" +
+                              $"**Created on:** {user.CreationTimestamp:dd/MM/yyyy}\n" +
+                              $"Roles: {roleNames}"
             };
             await ctx.Channel.SendMessageAsync(embed: embed).ConfigureAwait(false);
-
         }
+
         [Command("meme")]
         [Description("Sends a random meme.")]
         public async Task MemeCommand(CommandContext ctx)
@@ -139,7 +133,7 @@ namespace DiscordChatBotProject.commands
                     {
                         var error = new DiscordEmbedBuilder()
                         {
-                            Title = $"Error: Не можеш да делиш {numberOne} на 0.",
+                            Title = $"Error: You can't divide {numberOne} by 0.",
                             Color = DiscordColor.Red
                         };
                         await ctx.Channel.SendMessageAsync(embed: error).ConfigureAwait(false);
@@ -152,95 +146,76 @@ namespace DiscordChatBotProject.commands
                     {
                         var error = new DiscordEmbedBuilder()
                         {
-                            Title = $"Error: Не можеш да делиш {numberOne} на 0.",
+                            Title = $"Error: You can't divide {numberOne} by 0.",
                             Color = DiscordColor.Red
                         };
-                        await ctx.Channel.SendMessageAsync(embed:error).ConfigureAwait(false);
+                        await ctx.Channel.SendMessageAsync(embed: error).ConfigureAwait(false);
                         return;
                     }
                     result = numberOne % numberTwo;
                     break;
-
             }
             var embedCalculator = new DiscordEmbedBuilder()
             {
-               Title = $"Резултат от: {numberOne} {decision} {numberTwo} =  {result}",
-               Color = DiscordColor.Green
+                Title = $"Result of: {numberOne} {decision} {numberTwo} =  {result}",
+                Color = DiscordColor.Green
             };
-            await ctx.Channel.SendMessageAsync(embed : embedCalculator).ConfigureAwait(false);
-
+            await ctx.Channel.SendMessageAsync(embed: embedCalculator).ConfigureAwait(false);
         }
         [Command("books")]
         [Description("Template")]
         public async Task EmbededMessage(CommandContext ctx)
         {
-
             var message = new DiscordEmbedBuilder
             {
-                Title = "🚀Топ 15 Книги за програмиране",
-                Description = "Представяме ви Канала за програмисти, където ви очаква селекция от 15 от най-добрите книги, които всеки, стремящ се да стане майстор в света на технологиите, трябва да прочете! В този вълнуващ списък ще откриете основополагащи произведения, които ще ви помогнат да отключите пълния си потенциал като програмист и да навлезете по-дълбоко в света на кодирането и софтуерната архитектура!",
+                Title = "🚀Top 15 Programming Books",
+                Description = "We present to you the Programmer's Channel, where you will find a selection of 15 of the best books that anyone aiming to become a master in the world of technology should read! In this exciting list, you will discover foundational works that will help unlock your full potential as a programmer and dive deeper into the world of coding and software architecture!",
                 Color = DiscordColor.PhthaloGreen
-            }/*📊💻📅📈🌍*/
-.AddField("💡The Passionate Programmer", "[Книга 1](https://theswissbay.ch/pdf/Gentoomen%20Library/Programming/Pragmatic%20Programmers/The%20Passionate%20Programmer.pdf)", inline: false)
+            }
+            .AddField("💡The Passionate Programmer", "[Book 1](https://theswissbay.ch/pdf/Gentoomen%20Library/Programming/Pragmatic%20Programmers/The%20Passionate%20Programmer.pdf)", inline: false)
+            .AddField("📊Algorithms Data Structures = Programs", "[Book 2](https://www.cl72.org/110dataAlgo/Algorithms%20%20%20Data%20Structures%20=%20Programs%20%5BWirth%201976-02%5D.pdf)", inline: false)
+            .AddField("📈Inside the Machine", "[Book 3](https://nostarch.com/download/insidemachine_ch4.pdf)", inline: false)
+            .AddField("💻Code: The Hidden Language of Computer Hardware and Software", "[Book 4](https://bobcarp.wordpress.com/wp-content/uploads/2014/07/code-charles-petzold.pdf)", inline: false)
+            .AddField("🌍Concrete Mathematics", "[Book 5](https://seriouscomputerist.atariverse.com/media/pdf/book/Concrete%20Mathematics.pdf)", inline: false)
+            .AddField("💡Structure and Interpretation of Computer Programs", "[Book 6](https://eldritchdata.neocities.org/PDF/U/SICP-TheWizardBook.pdf)", inline: false)
+            .AddField("📊How to Design Programs", "[Book 7](https://edu.anarcho-copy.org/Programming%20Languages/Racket/How%20to%20design%20program%20se.pdf)", inline: false)
+            .AddField("📈The C Programming Language", "[Book 8](https://seriouscomputerist.atariverse.com/media/pdf/book/C%20Programming%20Language%20-%202nd%20Edition%20(OCR).pdf)", inline: false)
+            .AddField("💻William Strunk, Jr. The Elements of Style (Learn How to Write)", "[Book 9](https://daoyuan14.github.io/elos.pdf)", inline: false)
+            .AddField("📅The Elements of Programming Style", "[Book 10](http://www2.ing.unipi.it/~a009435/issw/extra/kp_elems_of_pgmng_sty.pdf)", inline: false)
+            .AddField("💡Clean Code", "[Book 11](https://github.com/jnguyen095/clean-code/blob/master/Clean.Code.A.Handbook.of.Agile.Software.Craftsmanship.pdf)", inline: false)
+            .AddField("🌍Algorithm Design", "[Book 12](https://mimoza.marmara.edu.tr/~msakalli/cse706_12/SkienaTheAlgorithmDesignManual.pdf)", inline: false)
+            .AddField("📈Modern Operating Systems", "[Book 13](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf)", inline: false)
+            .AddField("📊Predict the Unpredictable", "[Book 14](https://www.ece.uvic.ca/~bctill/papers/mocap/Zabell_1991.pdf)", inline: false)
+            .AddField("💻Thinking Fast and Slow", "[Book 15](http://dspace.vnbrims.org:13000/jspui/bitstream/123456789/2224/1/Daniel-Kahneman-Thinking-Fast-and-Slow-.pdf)", inline: false);
 
-.AddField("📊Algorithms Data Structures = Programs", "[💡Книга 2](https://www.cl72.org/110dataAlgo/Algorithms%20%20%20Data%20Structures%20=%20Programs%20%5BWirth%201976-02%5D.pdf)", inline: false)
-
-.AddField("📈Inside the Machine", "[Книга 3](https://nostarch.com/download/insidemachine_ch4.pdf)", inline: false)
-
-.AddField("💻Code:The Hidden Language of Computer Hardware and Software", "[Книга 4](https://bobcarp.wordpress.com/wp-content/uploads/2014/07/code-charles-petzold.pdf)", inline: false)
-
-.AddField("🌍Concrete Mathematics", "[Книга 5](https://seriouscomputerist.atariverse.com/media/pdf/book/Concrete%20Mathematics.pdf)", inline: false)
-
-.AddField("💡Structure and Interpretation of Computer Programs", "[Книга 6](https://eldritchdata.neocities.org/PDF/U/SICP-TheWizardBook.pdf)", inline: false)
-.AddField("📊How to design programs", "[Книга 7](https://edu.anarcho-copy.org/Programming%20Languages/Racket/How%20to%20design%20program%20se.pdf)", inline: false)
-
-.AddField("📈The C programming language", "[Книга 8](https://seriouscomputerist.atariverse.com/media/pdf/book/C%20Programming%20Language%20-%202nd%20Edition%20(OCR).pdf)", inline: false)
-
-.AddField("💻William Strunk, Jr.The Elements of Style(Learn how to write)", "[Книга 9](https://daoyuan14.github.io/elos.pdf)", inline: false)
-
-.AddField("📅The.Elements.Of.Programming.Style", "[Книга 10](http://www2.ing.unipi.it/~a009435/issw/extra/kp_elems_of_pgmng_sty.pdf)", inline: false)
-.AddField("💡Clean Code", "[Книга 11](https://github.com/jnguyen095/clean-code/blob/master/Clean.Code.A.Handbook.of.Agile.Software.Craftsmanship.pdf)", inline: false)
-.AddField("🌍Algorithm Design", "[Книга 12](https://mimoza.marmara.edu.tr/~msakalli/cse706_12/SkienaTheAlgorithmDesignManual.pdf)", inline: false)
-
-.AddField("📈Modern Operation Systems", "[Книга 13](https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf)", inline: false)
-.AddField("📊Predict the unpredictabl", "[Книга 14](https://www.ece.uvic.ca/~bctill/papers/mocap/Zabell_1991.pdf)", inline: false)
-.AddField("💻Thinking fast and slow", "[Книга 15](http://dspace.vnbrims.org:13000/jspui/bitstream/123456789/2224/1/Daniel-Kahneman-Thinking-Fast-and-Slow-.pdf)", inline: false);
             await ctx.Channel.SendMessageAsync(embed: message);
         }
-
         [Command("rules")]
         [Description("Server Rules")]
         public async Task RulesCommand(CommandContext ctx)
         {
             var embed = new DiscordEmbedBuilder
             {
-                Title = "Правила на сървъра!",
-                Description = "Моля прочетете правилата внимателно!",
+                Title = "Server Rules!",
+                Description = "Please read the rules carefully!",
                 Color = DiscordColor.Red,
                 Footer = new EmbedFooter
                 {
-                    Text = "Благодаря че участвате в нашето общество!",
+                    Text = "Thank you for being part of our community!",
                     IconUrl = ctx.Guild.IconUrl
-
-                },
-
+                }
             };
 
-
-            embed.AddField("❕1. Бъдете уважителни", "– Поддържайте добър тон към всички членове на групата. Обиди и неуважително поведение няма да бъдат толерирани.", false);
-            embed.AddField("❕2. Без спам", "– Избягвайте ненужни съобщения, реклама или спам съдържание. Нека сървърът остане фокусиран върху учебните теми.", false);
-            embed.AddField("❕3. Питайте и помагайте", "– Насърчаваме активното задаване на въпроси, но също така и взаимната помощ. Споделянето на знания е ключът към успеха.", false);
-            embed.AddField("❕4. Споделянето на решения", "– Помощта с домашни и задачи е добре дошла, но целта е да се учим заедно. Споделяйте обяснения, а не просто готови отговори.", false);
-            embed.AddField("❕5. Спазвайте правилата на Discord", "– Уверете се, че следвате общите насоки и правила на платформата Discord.", false);
-            embed.AddField("❕6. Чатове", "<#1292406919046369313> е предназначена само за решаване на задачи и обсъждане на теми, свързани с тях. За всякакви разговори извън тези рамки, моля използвайте канала ⁠<#1293632278018392234>.", false);
-            embed.AddField("❕ВАЖНО❕", "Този сървър не е официален и не е свързан с учебното заведение. Ние сме тук, за да се подкрепяме и да работим заедно към по-добри резултати.Присъединете се, задайте своите въпроси и нека заедно постигнем успеха", false);
-
+            embed.AddField("❕1. Be Respectful", "– Maintain a good tone with all group members. Insults and disrespectful behavior will not be tolerated.", false);
+            embed.AddField("❕2. No Spam", "– Avoid unnecessary messages, advertising, or spam content. Let's keep the server focused on the educational topics.", false);
+            embed.AddField("❕3. Ask and Help", "– We encourage actively asking questions, but also mutual assistance. Sharing knowledge is the key to success.", false);
+            embed.AddField("❕4. Share Solutions", "– Help with homework and tasks is welcome, but the goal is to learn together. Share explanations, not just answers.", false);
+            embed.AddField("❕5. Follow Discord's Guidelines", "– Ensure you follow the general rules and guidelines of the Discord platform.", false);
+            embed.AddField("❕6. Channels", "<#1292406919046369313> is intended only for solving tasks and discussing related topics. For other conversations, please use the ⁠<#1293632278018392234> channel.", false);
+            embed.AddField("❕IMPORTANT❕", "This server is not official and is not affiliated with the educational institution. We are here to support each other and work together towards better results. Join, ask your questions, and let's succeed together!", false);
 
             await ctx.Channel.SendMessageAsync(embed: embed).ConfigureAwait(false);
-
-
         }
-       
         [Command("cardgame")]
         [Description("Card game")]
         public async Task GameCard(CommandContext ctx)
@@ -252,7 +227,7 @@ namespace DiscordChatBotProject.commands
 
             var playerInfo = new DiscordEmbedBuilder()
             {
-                Title = $"Твоята карта е {playerCard} {playerCardType}!",
+                Title = $"Your card is {playerCard} {playerCardType}!",
                 Color = DiscordColor.Violet,
             };
             await ctx.Channel.SendMessageAsync(embed: playerInfo).ConfigureAwait(false);
@@ -264,9 +239,8 @@ namespace DiscordChatBotProject.commands
 
             var botInfo = new DiscordEmbedBuilder()
             {
-                Title = $"Бат Пешо Робота извади {botCard} {botCardType}!",
+                Title = $"Bot Pesho the Robot drew {botCard} {botCardType}!",
                 Color = DiscordColor.Gold,
-
             };
 
             await ctx.Channel.SendMessageAsync(embed: botInfo).ConfigureAwait(false);
@@ -275,27 +249,25 @@ namespace DiscordChatBotProject.commands
             {
                 var botWinner = new DiscordEmbedBuilder()
                 {
-                    Title = "Ти загуби от Бат Пешо Робота :confused:",
+                    Title = "You lost to Bot Pesho the Robot :confused:",
                     Color = DiscordColor.Red,
                 };
                 await ctx.Channel.SendMessageAsync(embed: botWinner).ConfigureAwait(false);
-
             }
             else if (botCard < playerCard)
             {
                 var playerWinner = new DiscordEmbedBuilder()
                 {
-                    Title = "Поздравления, ти спечели! 🏆",
+                    Title = "Congratulations, you won! 🏆",
                     Color = DiscordColor.Green,
                 };
                 await ctx.Channel.SendMessageAsync(embed: playerWinner).ConfigureAwait(false);
-
             }
             else
             {
                 var playerTie = new DiscordEmbedBuilder()
                 {
-                    Title = "Равенство! Истинска битка между равни – заслужено уважение и за двамата!",
+                    Title = "It's a tie! A real battle between equals – deserved respect for both!",
                     Color = DiscordColor.Gold,
                 };
                 await ctx.Channel.SendMessageAsync(embed: playerTie).ConfigureAwait(false);
@@ -305,22 +277,22 @@ namespace DiscordChatBotProject.commands
         [Description("Dice Game with numbers")]
         public async Task GameOfDice(CommandContext ctx)
         {
-            //🎲
+            // 🎲
             DiceGame player = new DiceGame();
-            var playerNum = player.DiceNumbersSet; 
+            var playerNum = player.DiceNumbersSet;
             var embedPlayerMessage = new DiscordEmbedBuilder()
             {
-                Title = $"Ти хвърли числото {playerNum} 🎲",
+                Title = $"You rolled the number {playerNum} 🎲",
                 Color = DiscordColor.Lilac
             };
 
-            await ctx.Channel.SendMessageAsync(embed : embedPlayerMessage).ConfigureAwait(false);
+            await ctx.Channel.SendMessageAsync(embed: embedPlayerMessage).ConfigureAwait(false);
 
             DiceGame bot = new DiceGame();
             var botNum = bot.DiceNumbersSet;
             var emebededBotMessage = new DiscordEmbedBuilder()
             {
-                Title = $"Бат Пешо Робота хвърли числото {botNum} 🎲",
+                Title = $"Bot Pesho the Robot rolled the number {botNum} 🎲",
                 Color = DiscordColor.CornflowerBlue
             };
 
@@ -330,17 +302,16 @@ namespace DiscordChatBotProject.commands
             {
                 var embedWinner = new DiscordEmbedBuilder()
                 {
-                    Title = "Поздравления ти победи! 🏆",
+                    Title = "Congratulations, you won! 🏆",
                     Color = DiscordColor.Green
                 };
                 await ctx.Channel.SendMessageAsync(embed: embedWinner).ConfigureAwait(false);
-
             }
             else if (playerNum < botNum)
             {
                 var embedLoser = new DiscordEmbedBuilder()
                 {
-                    Title = "Ти загуби от Бат Пешо Робота :confused: ",
+                    Title = "You lost to Bot Pesho the Robot :confused:",
                     Color = DiscordColor.Red
                 };
                 await ctx.Channel.SendMessageAsync(embed: embedLoser).ConfigureAwait(false);
@@ -349,24 +320,17 @@ namespace DiscordChatBotProject.commands
             {
                 var embedTie = new DiscordEmbedBuilder()
                 {
-                    Title = "Равенство! Истинска битка между равни – заслужено уважение и за двамата!",
+                    Title = "It's a tie! A real battle between equals – deserved respect for both!",
                     Color = DiscordColor.Gold
                 };
                 await ctx.Channel.SendMessageAsync(embed: embedTie).ConfigureAwait(false);
             }
         }
-        // Interaction with a peson
-        [Command("interaction")]
-        public async Task Interaction(CommandContext ctx)
-        {
-            var interactivity = Program.Client.UseInteractivity();
-            var messageToRetrieve = await interactivity.WaitForMessageAsync(message => message.Content == "Hello Pesho!");
-
-            if (messageToRetrieve.Result.Content == "Hello Pesho!")
-            {
-                await ctx.Channel.SendMessageAsync($"Здрасти {ctx.User.Mention} върви ли кода?");
-            }
-        }
-
     }
 }
+
+
+
+
+
+
