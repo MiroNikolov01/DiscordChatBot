@@ -10,7 +10,7 @@ namespace DiscordChatBotProject.commands
     public class CardGame
     {
         public int[] CardNumber = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
-        public string[] CardType = new string[] { "Купа :hearts: ", "Спатия ♣️", "Каро ♦️", "Пика ♠️" };
+        public string[] CardType = new string[] { "Hearts :hearts:", "Clubs ♣️", "Diamonds ♦️", "Spades ♠️" };
         public int CardSet { get; set; }
         public string CardTypeSet { get; set; }
         public CardGame()
