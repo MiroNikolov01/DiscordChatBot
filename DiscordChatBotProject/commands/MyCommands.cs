@@ -239,7 +239,7 @@ namespace DiscordChatBotProject.commands
 
             var botInfo = new DiscordEmbedBuilder()
             {
-                Title = $"Bot Pesho the Robot drew {botCard} {botCardType}!",
+                Title = $"Bat Pesho the Robot drew {botCard} {botCardType}!",
                 Color = DiscordColor.Gold,
             };
 
@@ -249,7 +249,7 @@ namespace DiscordChatBotProject.commands
             {
                 var botWinner = new DiscordEmbedBuilder()
                 {
-                    Title = "You lost to Bot Pesho the Robot :confused:",
+                    Title = "You lost to Bat Pesho the Robot :confused:",
                     Color = DiscordColor.Red,
                 };
                 await ctx.Channel.SendMessageAsync(embed: botWinner).ConfigureAwait(false);
@@ -292,7 +292,7 @@ namespace DiscordChatBotProject.commands
             var botNum = bot.DiceNumbersSet;
             var emebededBotMessage = new DiscordEmbedBuilder()
             {
-                Title = $"Bot Pesho the Robot rolled the number {botNum} 🎲",
+                Title = $"Bat Pesho the Robot rolled the number {botNum} 🎲",
                 Color = DiscordColor.CornflowerBlue
             };
 
@@ -311,7 +311,7 @@ namespace DiscordChatBotProject.commands
             {
                 var embedLoser = new DiscordEmbedBuilder()
                 {
-                    Title = "You lost to Bot Pesho the Robot :confused:",
+                    Title = "You lost to Bat Pesho the Robot :confused:",
                     Color = DiscordColor.Red
                 };
                 await ctx.Channel.SendMessageAsync(embed: embedLoser).ConfigureAwait(false);
