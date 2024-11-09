@@ -1,6 +1,6 @@
 # Bat Pesho The Robot - A C# Discord Bot
 
-![Alt text](https://imgur.com/e45wQ7j.png)
+<img src="https://imgur.com/e45wQ7j.png)" width="300" />
 
 **Bat Pesho The Robot** is a powerful and feature-rich Discord bot designed to enhance the experience of server members. Built with the [DSharpPlus](https://github.com/DSharpPlus/DSharpPlus) library in C#, Bat Pesho can provide server information, perform calculations, recommend books, enforce server rules, and entertain with jokes and games!
 
