@@ -1,8 +1,7 @@
 # Bat Pesho The Robot - A C# Discord Bot
-<div style="text-align: center;">
-  # Bat Pesho The Robot - A C# Discord Bot
+<div style="text-align: center; font-size: 48px; font-weight: bold; text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(0, 255, 255, 0.7);">
+    Bat Pesho The Robot - A C# Discord Bot
 </div>
-<div align="center">
 <img src="https://imgur.com/e45wQ7j.png)" width="300" />
 </div>
 
